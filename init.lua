@@ -257,12 +257,12 @@ cmp.setup({
 })
 
 
---vim.api.nvim_create_autocmd("BufWritePre", {
---    desc = "delete trailing whitespace",
---    callback = function(event)
---        vim.cmd("%s/\\s\\+$//e")
---    end
---})
+vim.api.nvim_create_autocmd("BufWritePre", {
+    desc = "delete trailing whitespace",
+    callback = function(event)
+        vim.cmd("%s/\\s\\+$//e")
+    end
+})
 
 
 vim.g.mapleader = " "
