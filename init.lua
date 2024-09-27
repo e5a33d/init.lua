@@ -181,9 +181,9 @@ require("oil").setup({
   },
 })
 
--- onedark setup (colour theme) setup
+-- Lua
 require('onedark').setup {
-	style = 'darker'
+    style = 'warmer'
 }
 require('onedark').load()
 
@@ -256,7 +256,6 @@ cmp.setup({
 	})
 })
 
-
 vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "delete trailing whitespace",
     callback = function(event)
@@ -264,7 +263,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
 })
 
-
+vim.cmd("so ~/.config/nvim/.vimrc")
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 vim.keymap.set( {'n', 'v', 'i'}, "<Up>", "<nop>")
@@ -304,6 +303,7 @@ vim.keymap.set("n", ";", "gg")
 vim.keymap.set("n", "<leader>gw", "<cmd>set wrap<cr><cmd>set linebreak<cr>")
 vim.keymap.set("n", "<leader>gn", "<cmd>set nowrap<cr>")
 vim.keymap.set("n", "<S-l>", "079lb")
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<cr>")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -327,7 +327,7 @@ vim.opt.scrolloff = 20
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.mouse = ""
-vim.opt.nu = true 
+vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
