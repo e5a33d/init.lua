@@ -190,7 +190,7 @@ require('onedark').load()
 -- treesitter setup
 require'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all"
-	ensure_installed = {  "c", "lua", "haskell", "glsl" },
+	ensure_installed = {  "c", "lua", "haskell", "glsl", "latex" },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
@@ -221,6 +221,8 @@ require('lspconfig')['hls'].setup({})
 require'lspconfig'.pylsp.setup{}
 require'lspconfig'.denols.setup{}
 require'lspconfig'.racket_langserver.setup{}
+require'lspconfig'.racket_langserver.setup{}
+require'lspconfig'.texlab.setup{}
 
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
@@ -299,11 +301,14 @@ vim.keymap.set("i", "<C-h>", "<S-Left>")
 vim.keymap.set("i", "<C-l>", "<S-Right>")
 vim.keymap.set("n", "<A-t>", "<Cmd>!alacritty& disown<CR><CR>")
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
-vim.keymap.set("n", ";", "gg")
 vim.keymap.set("n", "<leader>gw", "<cmd>set wrap<cr><cmd>set linebreak<cr>")
 vim.keymap.set("n", "<leader>gn", "<cmd>set nowrap<cr>")
 vim.keymap.set("n", "<S-l>", "079lb")
+vim.keymap.set("n", "<S-h>", "_")
+vim.keymap.set("n", "<S-j>", "G")
+vim.keymap.set("n", "<S-k>", "gg")
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<cr>")
+vim.keymap.set("n", "<leader>cm", "<cmd>!chmod +x %<cr>")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
